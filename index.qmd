@@ -1,0 +1,75 @@
+---
+title: "Jamaica Bay Water Quality Analysis"
+subtitle: "A long-term study of environmental trends across monitoring stations"
+author: "Sneha Srivastava"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    embed-resources: false
+---
+
+## Overview
+
+*Add your project overview here — what Jamaica Bay is, why water quality matters, and the scope of this analysis.*
+
+## Methodology
+
+*Briefly describe your data source, the preprocessing steps (log transformation, standardization, yearly means), and the PCA + k-means approach.*
+
+## Station PCA Results
+
+Each tab below shows an interactive 3D PCA biplot for a monitoring station. Points represent yearly means colored by k-means cluster (3 clusters). Loading arrows show how each water quality parameter contributes to the principal components.
+
+::: {.panel-tabset}
+
+## Station J1
+
+*Add your J1 findings here — what the clusters represent, notable trends, any anomalies.*
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J1/j1_pca_3d.html" width="100%" height="620px" frameborder="0"></iframe>
+```
+
+## Station J3
+
+*Add your J3 findings here.*
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J3/j3_pca_3d.html" width="100%" height="620px" frameborder="0"></iframe>
+```
+
+## Station J5
+
+*Add your J5 findings here.*
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J5/j5_pca_3d.html" width="100%" height="620px" frameborder="0"></iframe>
+```
+
+## Station J7
+
+*Add your J7 findings here.*
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J7/j7_pca_3d.html" width="100%" height="620px" frameborder="0"></iframe>
+```
+
+## Station N16
+
+*Add your N16 findings here.*
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_N16/n16_pca_3d.html" width="100%" height="620px" frameborder="0"></iframe>
+```
+
+:::
+
+## Discussion
+
+*Cross-station comparisons, broader conclusions, limitations.*
+
+## References
+
+*Data source, any papers cited.*
