@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html#methodology",
+    "href": "index.html#methodology",
+    "title": "Jamaica Bay Water Quality Analysis",
+    "section": "Methodology",
+    "text": "Methodology\nBriefly describe your data source, the preprocessing steps (log transformation, standardization, yearly means), and the PCA + k-means approach."
+  },
+  {
+    "objectID": "index.html#station-pca-results",
+    "href": "index.html#station-pca-results",
+    "title": "Jamaica Bay Water Quality Analysis",
+    "section": "Station PCA Results",
+    "text": "Station PCA Results\nEach tab below shows an interactive 3D PCA biplot for a monitoring station. Points represent yearly means colored by k-means cluster (3 clusters). Loading arrows show how each water quality parameter contributes to the principal components. Zoom in and out by scrolling up and down, respectively. Click and drag to change the angle of view.\n\nStation J7Station J3Station J5Station J1Station N16"
+  },
+  {
+    "objectID": "index.html#discussion",
+    "href": "index.html#discussion",
+    "title": "Jamaica Bay Water Quality Analysis",
+    "section": "Discussion",
+    "text": "Discussion\nCross-station comparisons, broader conclusions, limitations."
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Jamaica Bay Water Quality Analysis",
+    "section": "References",
+    "text": "References\nData source, any papers cited."
+  }
+]

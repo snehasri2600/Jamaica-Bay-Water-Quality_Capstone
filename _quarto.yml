@@ -1,0 +1,11 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+  resources:
+    - Station_Data_Analyses/Station_J1/j1_pca_3d_slider.html
+    - Station_Data_Analyses/Station_J3/j3_pca_3d_slider.html
+    - Station_Data_Analyses/Station_J5/j5_pca_3d_slider.html
+    - Station_Data_Analyses/Station_J7/j7_pca_3d_slider.html
+    - Station_Data_Analyses/Station_N16/n16_pca_3d_slider.html
