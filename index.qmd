@@ -4,7 +4,7 @@ subtitle: "A long-term study of environmental trends across monitoring stations"
 author: "Sneha Srivastava"
 format:
   html:
-    theme: cosmo
+    theme: lumen
     toc: true
     toc-depth: 2
     embed-resources: false
@@ -55,6 +55,22 @@ Zoom in and out by scrolling up and down, respectively. Click and drag to change
 ```
 
 :::
+
+```{=html}
+<script>
+document.addEventListener('shown.bs.tab', function(e) {
+    var pane = document.querySelector(e.target.getAttribute('data-bs-target'));
+    if (!pane) return;
+    var iframe = pane.querySelector('iframe');
+    if (!iframe) return;
+    setTimeout(function() {
+        var iPlotly = iframe.contentWindow && iframe.contentWindow.Plotly;
+        var gd = iframe.contentDocument && iframe.contentDocument.querySelector('.plotly-graph-div');
+        if (iPlotly && gd) iPlotly.Plots.resize(gd);
+    }, 200);
+});
+</script>
+```
 
 ## Discussion
 

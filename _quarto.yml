@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  post-render:
+    - inject_plotly_scripts.py
   render:
     - index.qmd
   resources:
