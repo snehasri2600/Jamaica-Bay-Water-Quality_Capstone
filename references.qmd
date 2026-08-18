@@ -1,0 +1,24 @@
+---
+title: "References"
+---
+
+Alexander, D. (2018). A Spatial and Temporal Analysis of Water Quality Indicators in Jamaica Bay, NY. CUNY Brooklyn College.
+
+Alexander, D., & Zamani, M. (2026). Jamaica-Bay-dataset [Dataset]. https://github.com/snehasri2600/Jamaica-Bay-Water-Quality_Capstone/tree/main. https://github.com/snehasri2600/Jamaica-Bay-Water-Quality_Capstone/blob/main/Jamaica-Bay-dataset.csv
+
+Indicators: Salinity. (2025, December 18). [Overviews and Factsheets]. U.S. Environmental Protection Agency. https://www.epa.gov/national-aquatic-resource-surveys/indicators-salinity
+
+Introducing Jamaica Bay. (n.d.). U.S. National Park Service. Retrieved April 16, 2026, from https://www.nps.gov/im/ncbn/jamaica-bay.htm
+
+Jamaica Bay Watershed Protection Plan Update 2018. (2018). Bureau of Environmental Planning and Analysis. https://www.nyc.gov/assets/dep/downloads/pdf/water/nyc-waterways/jamaica-bay/jamaica-bay-watershed-protection-plan-update-2018.pdf
+Monthly Climate Reports. (2002, March). National Centers for Environmental Information. https://www.ncei.noaa.gov/access/monitoring/monthly-report/drought/200203
+
+New York City Harbor Water Quality Survey Stations 2016. (2016). [Map]. NYC Department of Environmental Protection.
+
+Oldenburg, B. (2025). Map of the New York City Wastewater System [Map]. Department of Environmental Protection. https://www.nyc.gov/site/dep/water/wastewater-treatment-plants.page
+
+Powell, V., & Lehe, L. (n.d.). Principal Component Analysis. Explained Visually. Retrieved April 16, 2026, from https://setosa.io/ev/principal-component-analysis/
+
+What is Principal Component Analysis (PCA)? (2023, December 8). IBM. https://www.ibm.com/think/topics/principal-component-analysis
+
+Winland, Vanna, & Kavlakoglu, E. (2024, June 26). What is K-means Clustering? IBM. https://www.ibm.com/think/topics/k-means-clustering

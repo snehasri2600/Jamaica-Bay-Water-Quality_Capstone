@@ -1,0 +1,84 @@
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.section-card {
+  display: block;
+  background: #faf4e6;
+  border: 1px solid #b98d54;
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(74, 52, 20, 0.18);
+  text-decoration: none;
+  color: inherit;
+}
+
+.section-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.section-card .readmore {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.method-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1.75rem;
+}
+
+.method-flow .step {
+  background: #f1e2c1;
+  border: 1px solid #b98d54;
+  border-radius: 4px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  max-width: 15ch;
+}
+
+.method-flow .arrow {
+  font-weight: 600;
+}
+
+.mini-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.7rem 0 0.2rem;
+}
+
+.mini-flow .step {
+  background: #c6a067;
+  border: 1px solid #b98d54;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+.mini-flow .arrow {
+  font-size: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-card {
+    transition: none;
+  }
+}

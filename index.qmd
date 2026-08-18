@@ -2,17 +2,11 @@
 title: "Jamaica Bay Water Quality Analysis"
 subtitle: "A long-term study of environmental trends across monitoring stations"
 author: "Sneha Srivastava"
-format:
-  html:
-    theme: lumen
-    toc: true
-    toc-depth: 2
-    embed-resources: false
 ---
 
 This website includes some of the written sections from the larger paper generated for this project.
-For the complete study, along with the two-dimensional visualizations, follow the GitHub link to the Jamaica Bay Water Quality PDF. 
-This study is completed and published as part of the requirements for a Master of Science in Data Analysis & Visualization at the CUNY Graudate Center. 
+For the complete study, along with the two-dimensional visualizations, follow the GitHub link to the Jamaica Bay Water Quality PDF.
+This study is completed and published as part of the requirements for a Master of Science in Data Analysis & Visualization at the CUNY Graudate Center.
 
 ## Abstract
 
@@ -33,203 +27,32 @@ project is to build further on her research by conducting PCA on five individual
 Jamaica Bay in order to gain granular insights into water quality changes, along with extending the
 timeline of the study to include data until 2024.
 
-## Methodology
-
-The New York City Harbor Water Quality dataset was used for this analysis (NYC Open Data, n.d.) The
-data between 1995 and 2024 was initially cleaned by Danielle Alexander and Mojgan Zamani (2026).
-Once received, the data was parsed for duplicate sampling, discrepancies in feature names, and
-string-to-datetime conversions on Python using the pandas library. The data was filtered to view
-values including and after 1995, then filtered for summer months (specifically, June to September). Following data exploration methods, since the purpose of this project was to replicate Alexander’s study on individual stations within Jamaica Bay without temporal changepoint analysis, the same feature variables were filtered into the dataset for analysis:
-
-* Dissolved Oxygen (mg/L)
-* Water temperature (Celsius)
-* Salinity (PSU)
-* pH
-* Secchi disk depth (meters)
-* Chlorophyll a (ug/L)
-* Total phosphorus (mg/L)
-* Ammonium (mg/L)
-* Nitrate/Nitrite (mg/L)
-* Total Kjeldahl nitrogen (mg/L)
-
-Mean values for each year’s summer were calculated for each relevant variable as a representative
-value. Finally, the dataset was split into separate datasets, each including data for one station.
-Five water quality assessment stations were studied in this analysis, generating five datasets.
-These stations were selected based on geographic locations and distance from each other, along with
-insights from Alexander’s work. The following stations are listed from most inland to farthest into the ocean:
-
-* J7
-* J3
-* J5
-* J1
-* N16
-
-In Alexander’s (2018) work, the following stations clustered differently before and after 2008: J3,  J2, and J5. Since J2 showed the same clustering differences as J3, and J3 was further inland than J2, J3 was chosen for this project. N16 was included here to verify whether it could act as a relative control variable compared to other stations, as it is geographically furthest from the bay. Similarly, J7 was included since it was the most inland station available for analysis. Once the data had been split by station, each resulting dataset was normalized. After visualizing the distributions of each feature using Python’s matplotlib package, the following variables were identified as left-skewed and normalized via logarithmic transformations, in accordance with Alexander’s (2018) methods:
-
-* Dissolved oxygen
-* Secchi disk depth
-* Chlorophyll a
-* Total phosphorus
-* Ammonium
-* Nitrate/Nitrite
-* Total Kjeldahl Nitrogen
-
-Scikit-learn libraries in Python were used to scale the data. A principal component analysis was run on all of these variables to visualize the clustering of years, with one PCA per station chosen. In order to accurately run PCA,
-the data was checked to ensure no missing values. A missing value was found for total Kjeldahl nitrogen in each dataset, so 1995 was dropped as a year of analysis. This resulted in the final study including the years 1996 to 2024. Finally, PCA was initialized and run on the datasets, once again, using scikit-learn libraries. In order to generate visualizations of the PCA, the matplotlib libraries were leveraged. After PCA, k-means clustering was then applied to the PCA biplot to reveal patterns within the data. Three clusters were determined as the ideal number of clusters in this analysis after assessing inertia plots to generate useful results while minimizing overfitting of the model.
-
-
-## Station PCA Results
-
-Each tab below shows an interactive 3D PCA biplot for a monitoring station. Points represent yearly
-means colored by k-means cluster (3 clusters). Loading arrows show how each water quality parameter
-contributes to the principal components. Zoom in and out by scrolling up and down, respectively.
-Click and drag to change the angle of view.
-
-::: {.panel-tabset}
-
-## Station J7
-
 ```{=html}
-<iframe src="Station_Data_Analyses/Station_J7/j7_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+<div class="section-cards">
+  <a class="section-card" href="methodology.html">
+    <h3>Methodology</h3>
+    <div class="mini-flow">
+      <span class="step">Raw data</span>
+      <span class="arrow">&rarr;</span>
+      <span class="step">Filter &amp; split</span>
+      <span class="arrow">&rarr;</span>
+      <span class="step">Log + scale</span>
+      <span class="arrow">&rarr;</span>
+      <span class="step">PCA &rarr; k-means</span>
+    </div>
+    <span class="readmore">Read the Methodology &rarr;</span>
+  </a>
+  <a class="section-card" href="results.html">
+    <h3>Station PCA Results</h3>
+    <span class="readmore">View the PCA Results &rarr;</span>
+  </a>
+  <a class="section-card" href="discussion.html">
+    <h3>Discussion</h3>
+    <span class="readmore">Read the Discussion &rarr;</span>
+  </a>
+  <a class="section-card" href="references.html">
+    <h3>References</h3>
+    <span class="readmore">View References &rarr;</span>
+  </a>
+</div>
 ```
-Principal components: 
-
-* PC 1 most influential variables: total kjeldahl nitrogen (TKN), ammonium (NH4), and nitrates/nitrites (NO3 + NO2)
-* PC 2 most influential variables: salinity, temperature, and total phosphorus (P)
-
-As far as the relationships between the feature eigenvectors are concerned, TKN, ammonium, NO3 + NO2, and Secchi depth seem to have close positive correlations with each other, while having negative correlations with temperature and pH. However, salinity is almost perpendicular to TKN, NH4, and NO3 + NO2, indicating almost no relationship with the aforementioned variables. 
-
-Clustering:
-
-* Cluster 0: 1996, 1998, 2000, 2004 to 2007, 2009, and 2011
-* Cluster 1: 1997, 1999, 2001 to 2003, 2008, 2010, 2012 to 2014 
-* Cluster 2: 1997, 1999, 2001, 2002, 2003, 2008, 2010, 2012, 2013, and 2014.
-
-The reasons for this pattern are unclear at the time of this study. Of note is also the fact that while 2002 does not have as much influence from the features in PC 1, it is extremely affected by the features in PC 2, to the point where it could be considered an outlier.
-
-
-## Station J3
-
-```{=html}
-<iframe src="Station_Data_Analyses/Station_J3/j3_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
-```
-Principal Components:
-
-* PC 1: TKN, NO3 + NO2, salinity, and ammonium
-* PC 2: salinity, TKN, chlorophyll a, and Secchi depth
-
-Salinity and TKN still seem to have little relationship with each other, being perpendicular eigenvectors. Chlorophyll a and dissolved oxygen have a close positive correlation, along with nitrates and nitrites, with ammonium. Secchi depth and pH show a strong negative correlation, along with NO3 + NO2/ammonium and temperature. 
-
-Clustering:
-    
-* Cluster 0: 1996, 1997, 1998, 2001, and 2003 to 2009
-* Cluster 1: 2002 and 2012 and after
-* Cluster 2: 1999, 2000, and 2011
-    
-Once again, 2002 appears to be a slight outlier with a stronger influence from PC 2 as compared to the rest of the years, though it has a similar PC 1 influence to its cluster 1. 2011 and 2002 are both heavily influenced by PC 2, but in opposite directions. Why cluster 2 only includes three years is worth exploring. 
-
-
-## Station J5
-
-```{=html}
-<iframe src="Station_Data_Analyses/Station_J5/j5_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
-```
-Principal Components:
-
-* PC 1: Secchi depth, NO3 + NO2, and TKN
-* PC 2: salinity, TKN, and chlorophyll a. 
-
-Clustering:
-
-* Cluster 0: 1996,1997, 1998, 2000, 2001, 2003 to 2009, 2012, 2013
-* Cluster 1: 2011, 2014 to 2024
-* Cluster 2: 1999, 2001, 2002, 2008, and 2010
-
-Because Station J5 is located further inland than Station J1, but is on the same path of water flow, the comparison between these two stations is needed. 
-
-## Station J1
-
-```{=html}
-<iframe src="Station_Data_Analyses/Station_J1/j1_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
-```
-Principal Components:
-
-* PC 1: Secchi depth, NO3 + NO2, salinity
-* PC 2: salinity and TKN 
-
-Clustering:
-
-* Cluster 0: 1996 to 2000, 2003 to 2009, 2011
-* Cluster 1: 2001, 2002, 2022
-* Cluster 2: 2010, 2012, 2013 to 2024
-
-Similar to the J7 and J3 plots discussed above, there is a distinct break between earlier and later years, changing somewhere between 2010 and 2015. Yet, in the Station J5 and J1 plots, there are more exceptions to this “rule” than in the earlier plots. Perhaps this is because we have moved further out of the bay with these stations, and there is more mixing of water than there was at station J7. Further research is needed. 
-
-## Station N16
-
-```{=html}
-<iframe src="Station_Data_Analyses/Station_N16/n16_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
-```
-Principal Components:
-
-* PC 1: Secchi depth, pH, and chlorophyll a
-* PC 2: salinity, with the rest being similarly influential
-
-Perhaps some of the most interesting aspects of this plot are that TKN is negatively correlated with ammonium and nitrates/nitrites, while having little correlation with total phosphorus content. This is a different result from the other plots in this study and needs further exploration to find an explanation. 
-
-Clustering:
-
-* Cluster 0: 1996 to 1998, 2004 to 2006, 2008 to 2011, and 2024
-* Cluster 1: 1999, 2000, 2003, 2007, 2012, and 2013
-* Cluster 2: 2001, 2002, 2014 to 2020, 2022, and 2023
-
-The results for Station N16 indicate a more mixed result in clustering years, though there does seem to be a changepoint around 2014. Further research is needed.
-
-:::
-
-```{=html}
-<script>
-document.addEventListener('shown.bs.tab', function(e) {
-    var pane = document.querySelector(e.target.getAttribute('data-bs-target'));
-    if (!pane) return;
-    var iframe = pane.querySelector('iframe');
-    if (!iframe) return;
-    setTimeout(function() {
-        var iPlotly = iframe.contentWindow && iframe.contentWindow.Plotly;
-        var gd = iframe.contentDocument && iframe.contentDocument.querySelector('.plotly-graph-div');
-        if (iPlotly && gd) iPlotly.Plots.resize(gd);
-    }, 200);
-});
-</script>
-```
-
-## Discussion
-
-A surface-level dive into the reasons behind the exceptions and outliers within the previous five PCA biplots revealed that in March 2002, a severe drought occurred in 17% of the contiguous United States (National Centers for Environmental Information, 2002). Droughts generally cause increased salt density in ocean water and estuaries due to decreases in freshwater river discharge (U.S. Environmental Protection Agency, 2025). When looking at the five PCA biplots generated in this project, the point for 2002 is located closest to the endpoint of the salinity eigenvector than to any other feature. This would require further analysis of all stations to confirm, but it is a plausible explanation for its positioning. 
-
-Alexander’s (2018) research adds to our understanding of the biplots above with a timeline of policy and wastewater treatment changes implemented in Jamaica Bay. Between 2010 and 2015, two different wastewater treatment plants (WWTP) experienced significant upgrades to their biological nitrogen removal technologies: the 26th Ward WWTP and the Jamaica WWTP (Alexander, 2018).  
-
-Biological nitrogen removal (BNR) technology was introduced to the 26th Ward in 2010, and installation was completed in 2011 (Alexander, 2018). In the Jamaica WWTP, installations of biological nitrogen removal technology began in 2012 and were completed by the beginning of 2015 (Alexander, 2018). Both of these improvements to wastewater treatment align with the clusters visualized in the PCA biplots above. Station J7 is located closest to the Jamaica WWTP, and it exhibits the clearest cluster beginning in 2015. This point of change could be attributed to the BNR installments and their completion at the Jamaica WWTP. J3 is located closest to the 26th Ward WWTP, and shows cluster 1 beginning in the year 2013. The improvements in the 26th Ward, which preceded those in the Jamaica WWTP, could explain the disconnected years in cluster 1 for stations J5 and J1. Further research would be needed to prove statistical significance in the influence of these WWTPs on the water quality analysis at these stations, in addition to analyses at other stations not included in this study. Additional research would also be needed to assess the influences of these treatment plants, along with other treatment plants across the coast of New York City, located in and outside Jamaica Bay. 
-
-## References
-
-Alexander, D. (2018). A Spatial and Temporal Analysis of Water Quality Indicators in Jamaica Bay, NY. CUNY Brooklyn College.
-
-Alexander, D., & Zamani, M. (2026). Jamaica-Bay-dataset [Dataset]. https://github.com/snehasri2600/Jamaica-Bay-Water-Quality_Capstone/tree/main. https://github.com/snehasri2600/Jamaica-Bay-Water-Quality_Capstone/blob/main/Jamaica-Bay-dataset.csv 
-
-Indicators: Salinity. (2025, December 18). [Overviews and Factsheets]. U.S. Environmental Protection Agency. https://www.epa.gov/national-aquatic-resource-surveys/indicators-salinity
-
-Introducing Jamaica Bay. (n.d.). U.S. National Park Service. Retrieved April 16, 2026, from https://www.nps.gov/im/ncbn/jamaica-bay.htm
-
-Jamaica Bay Watershed Protection Plan Update 2018. (2018). Bureau of Environmental Planning and Analysis. https://www.nyc.gov/assets/dep/downloads/pdf/water/nyc-waterways/jamaica-bay/jamaica-bay-watershed-protection-plan-update-2018.pdf
-Monthly Climate Reports. (2002, March). National Centers for Environmental Information. https://www.ncei.noaa.gov/access/monitoring/monthly-report/drought/200203
-
-New York City Harbor Water Quality Survey Stations 2016. (2016). [Map]. NYC Department of Environmental Protection.
-
-Oldenburg, B. (2025). Map of the New York City Wastewater System [Map]. Department of Environmental Protection. https://www.nyc.gov/site/dep/water/wastewater-treatment-plants.page 
-
-Powell, V., & Lehe, L. (n.d.). Principal Component Analysis. Explained Visually. Retrieved April 16, 2026, from https://setosa.io/ev/principal-component-analysis/
-
-What is Principal Component Analysis (PCA)? (2023, December 8). IBM. https://www.ibm.com/think/topics/principal-component-analysis
-
-Winland, Vanna, & Kavlakoglu, E. (2024, June 26). What is K-means Clustering? IBM. https://www.ibm.com/think/topics/k-means-clustering 

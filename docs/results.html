@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sneha Srivastava">
 
-<title>Jamaica Bay Water Quality Analysis</title>
+<title>Station PCA Results – Jamaica Bay Water Quality Analysis</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -94,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
@@ -102,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Methodology</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./results.html"> 
+    <a class="nav-link active" href="./results.html" aria-current="page"> 
 <span class="menu-text">Station Results</span></a>
   </li>  
   <li class="nav-item">
@@ -130,20 +129,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Jamaica Bay Water Quality Analysis</h1>
-<p class="subtitle lead">A long-term study of environmental trends across monitoring stations</p>
+<h1 class="title">Station PCA Results</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sneha Srivastava </p>
-          </div>
-  </div>
     
   
     
@@ -154,40 +146,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This website includes some of the written sections from the larger paper generated for this project. For the complete study, along with the two-dimensional visualizations, follow the GitHub link to the Jamaica Bay Water Quality PDF. This study is completed and published as part of the requirements for a Master of Science in Data Analysis &amp; Visualization at the CUNY Graudate Center.</p>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Jamaica Bay, an urban estuary situated in the southeast of New York City, boasts a long history of wildlife observation, fishing expeditions, and fertilizer manufacturing. However, its story has been tainted with issues surrounding water quality damage and public health concerns after large amounts of artificial alterations in the 1900s, which permanently changed the landscape (U.S. National Park Service, n.d.). These water quality problems were further exacerbated by unregulated wastewater treatment and disposal plants in the region, eventually leading to the Jamaica Bay Watershed Protection Plan of 2005. The plan, implemented in 2007, was designed to reduce eutrophication-causing nitrogen loads from wastewater disposal (Bureau of Environmental Planning and Analysis, 2018). The plan has since been updated, and though data regarding water quality shifts has been collected, it has yet to be analyzed in depth to conclude policy effectiveness. Danielle Alexander, a former student of Earth and Environmental Sciences at Brooklyn College, conducted an analysis of the entirety of Jamaica Bay across all stations in 2018. Her work involved PCA as well, though her methods involved a changepoint analysis of the bay (Alexander, 2018). The purpose of this project is to build further on her research by conducting PCA on five individual stations across Jamaica Bay in order to gain granular insights into water quality changes, along with extending the timeline of the study to include data until 2024.</p>
-<div class="section-cards">
-  <a class="section-card" href="methodology.html">
-    <h3 class="anchored">Methodology</h3>
-    <div class="mini-flow">
-      <span class="step">Raw data</span>
-      <span class="arrow">→</span>
-      <span class="step">Filter &amp; split</span>
-      <span class="arrow">→</span>
-      <span class="step">Log + scale</span>
-      <span class="arrow">→</span>
-      <span class="step">PCA → k-means</span>
-    </div>
-    <span class="readmore">Read the Methodology →</span>
-  </a>
-  <a class="section-card" href="results.html">
-    <h3 class="anchored">Station PCA Results</h3>
-    <span class="readmore">View the PCA Results →</span>
-  </a>
-  <a class="section-card" href="discussion.html">
-    <h3 class="anchored">Discussion</h3>
-    <span class="readmore">Read the Discussion →</span>
-  </a>
-  <a class="section-card" href="references.html">
-    <h3 class="anchored">References</h3>
-    <span class="readmore">View References →</span>
-  </a>
+<p>Each tab below shows an interactive 3D PCA biplot for a monitoring station. Points represent yearly means colored by k-means cluster (3 clusters). Loading arrows show how each water quality parameter contributes to the principal components. Zoom in and out by scrolling up and down, respectively. Click and drag to change the angle of view.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Station J7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Station J3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Station J5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Station J1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Station N16</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<iframe src="Station_Data_Analyses/Station_J7/j7_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+<p>Principal components:</p>
+<ul>
+<li>PC 1 most influential variables: total kjeldahl nitrogen (TKN), ammonium (NH4), and nitrates/nitrites (NO3 + NO2)</li>
+<li>PC 2 most influential variables: salinity, temperature, and total phosphorus (P)</li>
+</ul>
+<p>As far as the relationships between the feature eigenvectors are concerned, TKN, ammonium, NO3 + NO2, and Secchi depth seem to have close positive correlations with each other, while having negative correlations with temperature and pH. However, salinity is almost perpendicular to TKN, NH4, and NO3 + NO2, indicating almost no relationship with the aforementioned variables.</p>
+<p>Clustering:</p>
+<ul>
+<li>Cluster 0: 1996, 1998, 2000, 2004 to 2007, 2009, and 2011</li>
+<li>Cluster 1: 1997, 1999, 2001 to 2003, 2008, 2010, 2012 to 2014</li>
+<li>Cluster 2: 1997, 1999, 2001, 2002, 2003, 2008, 2010, 2012, 2013, and 2014.</li>
+</ul>
+<p>The reasons for this pattern are unclear at the time of this study. Of note is also the fact that while 2002 does not have as much influence from the features in PC 1, it is extremely affected by the features in PC 2, to the point where it could be considered an outlier.</p>
 </div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<iframe src="Station_Data_Analyses/Station_J3/j3_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+<p>Principal Components:</p>
+<ul>
+<li>PC 1: TKN, NO3 + NO2, salinity, and ammonium</li>
+<li>PC 2: salinity, TKN, chlorophyll a, and Secchi depth</li>
+</ul>
+<p>Salinity and TKN still seem to have little relationship with each other, being perpendicular eigenvectors. Chlorophyll a and dissolved oxygen have a close positive correlation, along with nitrates and nitrites, with ammonium. Secchi depth and pH show a strong negative correlation, along with NO3 + NO2/ammonium and temperature.</p>
+<p>Clustering:</p>
+<ul>
+<li>Cluster 0: 1996, 1997, 1998, 2001, and 2003 to 2009</li>
+<li>Cluster 1: 2002 and 2012 and after</li>
+<li>Cluster 2: 1999, 2000, and 2011</li>
+</ul>
+<p>Once again, 2002 appears to be a slight outlier with a stronger influence from PC 2 as compared to the rest of the years, though it has a similar PC 1 influence to its cluster 1. 2011 and 2002 are both heavily influenced by PC 2, but in opposite directions. Why cluster 2 only includes three years is worth exploring.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<iframe src="Station_Data_Analyses/Station_J5/j5_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+<p>Principal Components:</p>
+<ul>
+<li>PC 1: Secchi depth, NO3 + NO2, and TKN</li>
+<li>PC 2: salinity, TKN, and chlorophyll a.</li>
+</ul>
+<p>Clustering:</p>
+<ul>
+<li>Cluster 0: 1996,1997, 1998, 2000, 2001, 2003 to 2009, 2012, 2013</li>
+<li>Cluster 1: 2011, 2014 to 2024</li>
+<li>Cluster 2: 1999, 2001, 2002, 2008, and 2010</li>
+</ul>
+<p>Because Station J5 is located further inland than Station J1, but is on the same path of water flow, the comparison between these two stations is needed.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<iframe src="Station_Data_Analyses/Station_J1/j1_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+<p>Principal Components:</p>
+<ul>
+<li>PC 1: Secchi depth, NO3 + NO2, salinity</li>
+<li>PC 2: salinity and TKN</li>
+</ul>
+<p>Clustering:</p>
+<ul>
+<li>Cluster 0: 1996 to 2000, 2003 to 2009, 2011</li>
+<li>Cluster 1: 2001, 2002, 2022</li>
+<li>Cluster 2: 2010, 2012, 2013 to 2024</li>
+</ul>
+<p>Similar to the J7 and J3 plots discussed above, there is a distinct break between earlier and later years, changing somewhere between 2010 and 2015. Yet, in the Station J5 and J1 plots, there are more exceptions to this “rule” than in the earlier plots. Perhaps this is because we have moved further out of the bay with these stations, and there is more mixing of water than there was at station J7. Further research is needed.</p>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<iframe src="Station_Data_Analyses/Station_N16/n16_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+<p>Principal Components:</p>
+<ul>
+<li>PC 1: Secchi depth, pH, and chlorophyll a</li>
+<li>PC 2: salinity, with the rest being similarly influential</li>
+</ul>
+<p>Perhaps some of the most interesting aspects of this plot are that TKN is negatively correlated with ammonium and nitrates/nitrites, while having little correlation with total phosphorus content. This is a different result from the other plots in this study and needs further exploration to find an explanation.</p>
+<p>Clustering:</p>
+<ul>
+<li>Cluster 0: 1996 to 1998, 2004 to 2006, 2008 to 2011, and 2024</li>
+<li>Cluster 1: 1999, 2000, 2003, 2007, 2012, and 2013</li>
+<li>Cluster 2: 2001, 2002, 2014 to 2020, 2022, and 2023</li>
+</ul>
+<p>The results for Station N16 indicate a more mixed result in clustering years, though there does seem to be a changepoint around 2014. Further research is needed.</p>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('shown.bs.tab', function(e) {
+    var pane = document.querySelector(e.target.getAttribute('data-bs-target'));
+    if (!pane) return;
+    var iframe = pane.querySelector('iframe');
+    if (!iframe) return;
+    setTimeout(function() {
+        var iPlotly = iframe.contentWindow && iframe.contentWindow.Plotly;
+        var gd = iframe.contentDocument && iframe.contentDocument.querySelector('.plotly-graph-div');
+        if (iPlotly && gd) iPlotly.Plots.resize(gd);
+    }, 200);
+});
+</script>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

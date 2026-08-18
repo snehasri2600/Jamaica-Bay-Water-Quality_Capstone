@@ -1,0 +1,126 @@
+---
+title: "Station PCA Results"
+---
+
+Each tab below shows an interactive 3D PCA biplot for a monitoring station. Points represent yearly
+means colored by k-means cluster (3 clusters). Loading arrows show how each water quality parameter
+contributes to the principal components. Zoom in and out by scrolling up and down, respectively.
+Click and drag to change the angle of view.
+
+::: {.panel-tabset}
+
+## Station J7
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J7/j7_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+```
+Principal components:
+
+* PC 1 most influential variables: total kjeldahl nitrogen (TKN), ammonium (NH4), and nitrates/nitrites (NO3 + NO2)
+* PC 2 most influential variables: salinity, temperature, and total phosphorus (P)
+
+As far as the relationships between the feature eigenvectors are concerned, TKN, ammonium, NO3 + NO2, and Secchi depth seem to have close positive correlations with each other, while having negative correlations with temperature and pH. However, salinity is almost perpendicular to TKN, NH4, and NO3 + NO2, indicating almost no relationship with the aforementioned variables.
+
+Clustering:
+
+* Cluster 0: 1996, 1998, 2000, 2004 to 2007, 2009, and 2011
+* Cluster 1: 1997, 1999, 2001 to 2003, 2008, 2010, 2012 to 2014
+* Cluster 2: 1997, 1999, 2001, 2002, 2003, 2008, 2010, 2012, 2013, and 2014.
+
+The reasons for this pattern are unclear at the time of this study. Of note is also the fact that while 2002 does not have as much influence from the features in PC 1, it is extremely affected by the features in PC 2, to the point where it could be considered an outlier.
+
+
+## Station J3
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J3/j3_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+```
+Principal Components:
+
+* PC 1: TKN, NO3 + NO2, salinity, and ammonium
+* PC 2: salinity, TKN, chlorophyll a, and Secchi depth
+
+Salinity and TKN still seem to have little relationship with each other, being perpendicular eigenvectors. Chlorophyll a and dissolved oxygen have a close positive correlation, along with nitrates and nitrites, with ammonium. Secchi depth and pH show a strong negative correlation, along with NO3 + NO2/ammonium and temperature.
+
+Clustering:
+
+* Cluster 0: 1996, 1997, 1998, 2001, and 2003 to 2009
+* Cluster 1: 2002 and 2012 and after
+* Cluster 2: 1999, 2000, and 2011
+
+Once again, 2002 appears to be a slight outlier with a stronger influence from PC 2 as compared to the rest of the years, though it has a similar PC 1 influence to its cluster 1. 2011 and 2002 are both heavily influenced by PC 2, but in opposite directions. Why cluster 2 only includes three years is worth exploring.
+
+
+## Station J5
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J5/j5_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+```
+Principal Components:
+
+* PC 1: Secchi depth, NO3 + NO2, and TKN
+* PC 2: salinity, TKN, and chlorophyll a.
+
+Clustering:
+
+* Cluster 0: 1996,1997, 1998, 2000, 2001, 2003 to 2009, 2012, 2013
+* Cluster 1: 2011, 2014 to 2024
+* Cluster 2: 1999, 2001, 2002, 2008, and 2010
+
+Because Station J5 is located further inland than Station J1, but is on the same path of water flow, the comparison between these two stations is needed.
+
+## Station J1
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_J1/j1_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+```
+Principal Components:
+
+* PC 1: Secchi depth, NO3 + NO2, salinity
+* PC 2: salinity and TKN
+
+Clustering:
+
+* Cluster 0: 1996 to 2000, 2003 to 2009, 2011
+* Cluster 1: 2001, 2002, 2022
+* Cluster 2: 2010, 2012, 2013 to 2024
+
+Similar to the J7 and J3 plots discussed above, there is a distinct break between earlier and later years, changing somewhere between 2010 and 2015. Yet, in the Station J5 and J1 plots, there are more exceptions to this “rule” than in the earlier plots. Perhaps this is because we have moved further out of the bay with these stations, and there is more mixing of water than there was at station J7. Further research is needed.
+
+## Station N16
+
+```{=html}
+<iframe src="Station_Data_Analyses/Station_N16/n16_pca_3d_slider.html" width="100%" height="900px" frameborder="0"></iframe>
+```
+Principal Components:
+
+* PC 1: Secchi depth, pH, and chlorophyll a
+* PC 2: salinity, with the rest being similarly influential
+
+Perhaps some of the most interesting aspects of this plot are that TKN is negatively correlated with ammonium and nitrates/nitrites, while having little correlation with total phosphorus content. This is a different result from the other plots in this study and needs further exploration to find an explanation.
+
+Clustering:
+
+* Cluster 0: 1996 to 1998, 2004 to 2006, 2008 to 2011, and 2024
+* Cluster 1: 1999, 2000, 2003, 2007, 2012, and 2013
+* Cluster 2: 2001, 2002, 2014 to 2020, 2022, and 2023
+
+The results for Station N16 indicate a more mixed result in clustering years, though there does seem to be a changepoint around 2014. Further research is needed.
+
+:::
+
+```{=html}
+<script>
+document.addEventListener('shown.bs.tab', function(e) {
+    var pane = document.querySelector(e.target.getAttribute('data-bs-target'));
+    if (!pane) return;
+    var iframe = pane.querySelector('iframe');
+    if (!iframe) return;
+    setTimeout(function() {
+        var iPlotly = iframe.contentWindow && iframe.contentWindow.Plotly;
+        var gd = iframe.contentDocument && iframe.contentDocument.querySelector('.plotly-graph-div');
+        if (iPlotly && gd) iPlotly.Plots.resize(gd);
+    }, 200);
+});
+</script>
+```
